@@ -1,0 +1,5 @@
+.input:not(:placeholder-shown) + label,
+.input:focus + label {
+  top: 0;
+  z-index: 30;
+}

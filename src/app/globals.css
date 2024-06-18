@@ -1,33 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 75, 85, 99;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 214, 219, 220;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
 }
 
 body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #1a252e;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1 {
+  font-size: 28px;
+}
+
+#post-content h2 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  line-height: 38px;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
+
+.side-bar-post {
+  height: calc(100vh - 88px);
+  scrollbar-width: thin;
+}
+
+#post-content p {
+  font-size: 18px;
+  line-height: 32px;
+  margin-top: 0.5em;
+}
+
+#post-content img {
+  text-align: center;
+  margin: 8px auto;
+}
+
+pre code.hljs {
+  border-radius: 8px;
+}
+
+@layer components {
+  .f-center {
+    @apply flex items-center justify-center;
+  }
+  .fc-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  .p-responsive {
+    @apply px-2 sm:px-4 md:px-8 lg:px-20;
+  }
+
+  .btn-menu-editor {
+    @apply m-0.5 rounded border-2 px-1 py-0.5;
   }
 }
