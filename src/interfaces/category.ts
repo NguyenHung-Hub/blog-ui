@@ -5,3 +5,8 @@ export interface ICategory {
   createdAt: string;
   updatedAt: string;
 }
+export interface ICategories {
+  _id: string;
+  name: string;
+  slug: string;
+}

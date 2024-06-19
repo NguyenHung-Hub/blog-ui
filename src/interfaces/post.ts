@@ -12,3 +12,18 @@ export interface IPost {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface IDataPost {
+  data: Array<IPost>;
+  filter: { status: string };
+  paging: {
+    page: number;
+    limit: number;
+    total: number;
+  };
+}
+
+export interface IDataPostRecommend {
+  title: string;
+  slug: string;
+}
