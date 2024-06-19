@@ -63,3 +63,13 @@ export const getPostRecommend = async (
     throw error;
   }
 };
+
+export const getPost = async (slug: string): Promise<IPost | undefined> => {
+  try {
+    const res = await get<IPost>(`/post/${slug}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+};
