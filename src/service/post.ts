@@ -1,11 +1,14 @@
 import {
+  ICreatePost,
+  ICreatePostRes,
   IDataPost,
   IDataPostRecommend,
   IPost,
+  IUpdatePost,
   IUpdatePostRes,
   IUpdatePostStatus,
 } from "~/interfaces/post";
-import { get, putWithToken } from "~/util/httpRequest";
+import { get, postWithToken, putWithToken } from "~/util/httpRequest";
 
 export const listPostRandom = async ({
   n,
@@ -90,5 +93,23 @@ export const updatePostStatus = async (
   } catch (error) {
     console.log(error);
     return undefined;
+  }
+};
+
+export const savePost = async (post: ICreatePost) => {
+  try {
+    const res = await postWithToken<ICreatePostRes>("/post", post);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updatePost = async (post: IUpdatePost) => {
+  try {
+    const res = await putWithToken<IUpdatePostRes>("/post", post);
+    return res;
+  } catch (error) {
+    console.log(error);
   }
 };

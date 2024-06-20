@@ -1,0 +1,11 @@
+.main-editor {
+  width: calc(100% - 360px);
+}
+.editor-wrapper {
+  height: calc(100vh - 82px);
+}
+
+.editor-content-wrapper {
+  height: calc(100vh - 82px - 124px);
+  font-size: 18px;
+}
