@@ -10,8 +10,8 @@ async function PostPage({ params }: { params: { slug: string } }) {
 
   return (
     <main className="fc-center relative py-14">
-      <div className="mt-16 flex w-1200">
-        <div className="relative mr-8 max-w-[900px] flex-1">
+      <div className="mt-16 flex w-full md:w-[720px] lg:w-[960px] xl:w-1200">
+        <div className="relative w-full flex-1 px-3 lg:mr-8 lg:max-w-[900px] lg:px-0">
           {post ? (
             <div className="flex w-full flex-col">
               <div className="f-center mb-8 w-full">
@@ -43,7 +43,9 @@ async function PostPage({ params }: { params: { slug: string } }) {
                     </div>
                   ))}
                 </div>
-                <h1 className="mt-4 text-4xl font-bold">{post.title}</h1>
+                <h1 className="mt-4 font-bold sm:text-xl md:text-2xl lg:text-4xl">
+                  {post.title}
+                </h1>
               </div>
               {/* <ReadOnlyEditor content={post.description} /> */}
               <div
