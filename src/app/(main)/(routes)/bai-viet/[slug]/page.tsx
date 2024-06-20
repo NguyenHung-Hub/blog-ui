@@ -4,9 +4,15 @@ import { getPost } from "~/service/post";
 import formatDate from "~/util/formatDate";
 import Highlight from "./_components/HighLight";
 import SideBarRecommend from "~/app/(main)/_components/SideBar/SideBarRecommend";
+import { notFound } from "next/navigation";
 
 async function PostPage({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
+
+  if (!post) {
+    notFound();
+    return null;
+  }
 
   return (
     <main className="fc-center relative py-14">
