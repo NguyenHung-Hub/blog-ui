@@ -1,5 +1,11 @@
-import { IDataPost, IDataPostRecommend, IPost } from "~/interfaces/post";
-import { get } from "~/util/httpRequest";
+import {
+  IDataPost,
+  IDataPostRecommend,
+  IPost,
+  IUpdatePostRes,
+  IUpdatePostStatus,
+} from "~/interfaces/post";
+import { get, putWithToken } from "~/util/httpRequest";
 
 export const listPostRandom = async ({
   n,
@@ -67,6 +73,19 @@ export const getPostRecommend = async (
 export const getPost = async (slug: string): Promise<IPost | undefined> => {
   try {
     const res = await get<IPost>(`/post/${slug}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
+};
+
+export const updatePostStatus = async (
+  post: IUpdatePostStatus,
+): Promise<IUpdatePostRes | undefined> => {
+  console.log(`file: post.ts:46 > post:`, post);
+  try {
+    const res = await putWithToken<IUpdatePostRes>("/post", post);
     return res;
   } catch (error) {
     console.log(error);

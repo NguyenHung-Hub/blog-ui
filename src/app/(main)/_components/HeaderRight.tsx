@@ -80,7 +80,7 @@ const HeaderRight = () => {
 
             <div className="after:contents[' '] absolute -right-14 top-[calc(100%+14px)] hidden w-52 rounded bg-white p-2 drop-shadow-xl after:absolute after:bottom-full after:right-[58px] after:h-0 after:w-0 after:border-x-[12px] after:border-y-[15px] after:border-transparent after:border-b-white group-hover:block dark:bg-dark dark:drop-shadow-dark dark:after:border-b-dark">
               <Link
-                href={"/profile"}
+                href={"/dashboard"}
                 className="my-1 flex cursor-pointer rounded-sm p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
               >
                 <img
