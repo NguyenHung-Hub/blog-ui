@@ -38,7 +38,7 @@ export const listPost = async ({
   categorySlug = "",
   status = [],
   authorId = "",
-}: ListPostParams): Promise<IDataPost> => {
+}: ListPostParams): Promise<IDataPost | undefined> => {
   try {
     let url = `/post?page=${page}&limit=${limit}`;
     if (categorySlug != "") {
@@ -55,7 +55,7 @@ export const listPost = async ({
     return res;
   } catch (error) {
     console.log(error);
-    throw error;
+    return undefined;
   }
 };
 

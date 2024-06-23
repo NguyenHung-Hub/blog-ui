@@ -35,7 +35,7 @@ const BannerPaper = async () => {
       <div className="absolute left-0 top-0 z-50 h-full w-full md:-top-1 md:left-auto md:right-0 md:w-[360px] lg:w-[440px] xl:w-[620px]">
         <div className="absolute -left-6 top-0 hidden h-full md:block xl:left-0">
           <TornPaperIcon bg={color[random]} />
-          <img src="./svg/torn-paper-2.svg" alt="" className="h-[380px]" />
+          <img src="/svg/torn-paper-2.svg" alt="" className="h-[380px]" />
         </div>
         <div className="absolute h-full w-full px-4 py-2 text-white sm:left-1/2 sm:top-1/2 sm:h-auto sm:w-11/12 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:px-0 sm:py-4 md:left-1/2 md:-translate-x-1/2 md:py-0 md:text-foreground lg:right-8 lg:w-4/5 xl:right-10">
           <div className="flex h-full flex-col justify-between">

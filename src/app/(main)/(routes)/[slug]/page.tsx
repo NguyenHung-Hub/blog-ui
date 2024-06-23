@@ -1,7 +1,7 @@
 import React from "react";
-import BannerPaper from "./_components/BannerPaper";
-import PostGrid from "./_components/PostGrid";
 import SideBarRecommend from "../../_components/SideBar/SideBarRecommend";
+import BannerPaper from "../../_components/BannerPaper";
+import PostGrid from "../../_components/PostGrid";
 
 const HomePage = async ({
   params,
@@ -16,7 +16,7 @@ const HomePage = async ({
       <BannerPaper />
       <div className="mt-16 flex w-full flex-col items-center md:w-[720px] lg:w-[960px] lg:flex-row lg:items-start xl:w-1200">
         <PostGrid
-          categorySlug={params?.slug ? params?.slug[0] : ""}
+          categorySlug={params?.slug ? params?.slug : ""}
           page={searchParams?.page ? Number(searchParams.page) : 1}
         />
         <SideBarRecommend />
