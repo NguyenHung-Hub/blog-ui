@@ -115,7 +115,7 @@ const Profile = () => {
         authorId: user.user._id,
       });
 
-      if (result.data.length > 0) {
+      if (result?.data && result?.data?.length > 0) {
         const post = result.data.map<IRowPost>((i, index) => ({
           rowId: ((currentPage - 1) * itemsPerPage + index + 1).toString(),
           postId: i._id,
