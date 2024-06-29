@@ -9,7 +9,7 @@ export default function NotFound() {
           <p className="text-pink-400">0</p>
           <p className="text-green-400">4</p>
         </div>
-        <h2 className="text-3xl font-bold">Something's missing.</h2>
+        <h2 className="text-3xl font-bold">Something missing.</h2>
         <div className="fc-center mt-4">
           <p className="text-center">
             Xin lỗi, chúng tôi không thể tìm thấy trang đó.
