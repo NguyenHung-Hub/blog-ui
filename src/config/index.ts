@@ -1,5 +1,9 @@
 const routes = {
   post: "/bai-viet",
+  dashboard: "/dashboard",
+  postDashboard: "/dashboard/post",
+  resourceDashboard: "/dashboard/resource",
+  profileDashboard: "/dashboard/profile",
 };
 
 const env = {

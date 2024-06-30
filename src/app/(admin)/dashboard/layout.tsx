@@ -1,4 +1,4 @@
-import Header from "../../(main)/_components/Header";
+import SideBarDashboard from "./_components/SideBarDashboard";
 
 export default function DashboardLayout({
   children,
@@ -7,8 +7,10 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <Header />
-      {children}
+      <div className="flex h-screen">
+        <SideBarDashboard />
+        <main className="flex-1 px-4 py-8">{children}</main>
+      </div>
     </>
   );
 }

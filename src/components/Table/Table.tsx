@@ -113,8 +113,8 @@ function Table<T extends GridRowDef>({
                                 height={12}
                                 src={
                                   sortOrder === "asc"
-                                    ? "svg/fi_arrow-up.svg"
-                                    : "svg/fi_arrow-down.svg"
+                                    ? "/svg/fi_arrow-up.svg"
+                                    : "/svg/fi_arrow-down.svg"
                                 }
                                 alt="icon sort asc"
                               />
@@ -195,7 +195,7 @@ function Table<T extends GridRowDef>({
             <Image
               width={16}
               height={16}
-              src={"svg/fi_chevron-left.svg"}
+              src={"/svg/fi_chevron-left.svg"}
               alt="icon prev page"
             />
           </div>
@@ -208,7 +208,7 @@ function Table<T extends GridRowDef>({
             <Image
               width={16}
               height={16}
-              src={"svg/fi_chevron-right.svg"}
+              src={"/svg/fi_chevron-right.svg"}
               alt="icon next page"
             />
           </div>
