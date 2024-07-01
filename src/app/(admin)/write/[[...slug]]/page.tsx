@@ -3,7 +3,7 @@ import "./styles.css";
 import Button from "~/components/Button/Button";
 import TipTapEditor from "~/components/Editor/Tiptap/Tiptap";
 import Input from "~/components/Input/Input";
-import InputTags from "./_components/InputTags";
+import InputTags from "~/app/_components/InputTags";
 import { getPost, savePost, updatePost } from "~/service/post";
 import { uploadImage } from "~/service/upload";
 import { useAppDispatch, useAppSelector } from "~/store";

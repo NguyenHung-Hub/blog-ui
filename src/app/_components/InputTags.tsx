@@ -111,7 +111,7 @@ const InputTags = ({
         )}
       </ul>
       {values.length < 3 && text.length > 0 && (
-        <div className="absolute left-0 right-0 top-full mt-1 max-h-60 overflow-auto rounded border border-slate-400 bg-white p-1">
+        <div className="absolute left-0 right-0 top-full z-50 mt-1 max-h-48 overflow-auto rounded border border-slate-400 bg-white p-1">
           <ul>
             {categories.length == 0 && (
               <li
