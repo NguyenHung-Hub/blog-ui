@@ -117,12 +117,12 @@ httpRequest.interceptors.request.use(
 //https: stackoverflow.com/questions/47216452/how-to-handle-401-authentication-error-in-axios-and-react
 httpRequest.interceptors.response.use(
   (response) => {
-    console.log(
-      `file: httpRequest.ts:114 > response:`,
-      response,
-      response.data,
-      response.statusText,
-    );
+    // console.log(
+    //   `file: httpRequest.ts:114 > response:`,
+    //   response,
+    //   response.data,
+    //   response.statusText,
+    // );
     // if (response.status == 401) {
     //     return getToken().then((res) => {
     //         const { access_token } = res.data;

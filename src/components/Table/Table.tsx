@@ -23,6 +23,7 @@ interface TableProps<T extends GridRowDef> {
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   actionCol?: (obj: T) => React.ReactNode;
+  className?: string;
 }
 
 function Table<T extends GridRowDef>({
@@ -33,6 +34,7 @@ function Table<T extends GridRowDef>({
   currentPage = 1,
   setCurrentPage,
   actionCol,
+  className = "",
 }: TableProps<T>) {
   const [sortBy, setSortBy] = useState<string | null>("createdAt");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "none">("desc");
@@ -89,7 +91,7 @@ function Table<T extends GridRowDef>({
 
   return (
     <div className="rounded-md">
-      <table className="min-w-min max-w-full text-left text-sm">
+      <table className={`w-full text-left text-sm ${className}`}>
         <thead className="mx-0.5 h-8 border-b border-gray-500 font-medium dark:border-neutral-500">
           <tr>
             {columns.map((col, i) => {

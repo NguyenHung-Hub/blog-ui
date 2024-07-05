@@ -9,7 +9,7 @@ const Button = ({
   disabled = false,
   small = false,
   children,
-  className,
+  className = "",
   leftIcon,
   rightIcon,
   ...passProps

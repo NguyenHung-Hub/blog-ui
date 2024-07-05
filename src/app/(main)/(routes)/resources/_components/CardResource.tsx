@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { IResource } from "~/interfaces/resource";
+import { IResourceFull } from "~/interfaces/resource";
 
-const CardResource = ({ resource }: { resource: IResource }) => {
+const CardResource = ({ resource }: { resource: IResourceFull }) => {
   return (
     <div className="md:min-h-42 group overflow-hidden rounded-lg bg-white shadow-md hover:-translate-y-2 dark:bg-dark-ele">
       <Link href={resource.url} target="_blank" className="">

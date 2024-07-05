@@ -8,7 +8,7 @@ const ResourcePage = () => {
   const [resourceType, setResourceType] = useState<string>("all");
 
   const { data, isLoading } = useGetResourcesQuery(
-    `resources${resourceType == "all" ? "" : `?type=${resourceType}`}`,
+    `/resources${resourceType == "all" ? "" : `?type=${resourceType}`}`,
     {
       pollingInterval: 30000,
       skipPollingIfUnfocused: true,
