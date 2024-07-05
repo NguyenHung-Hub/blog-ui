@@ -4,6 +4,7 @@ export interface IPost {
   _id: string;
   title: string;
   description: string;
+  shortDescription: string;
   photo: string;
   author: string;
   categories: Array<ICategory>;
@@ -31,6 +32,7 @@ export interface IDataPostRecommend {
 export interface ICreatePost {
   title: string;
   description: string;
+  shortDescription: string;
   photo: string;
   author: string;
   categories: string[];
@@ -50,6 +52,7 @@ export interface ICreatePostRes {
   _id: string;
   title: string;
   description: string;
+  shortDescription: string;
   photo: string;
   author: string;
   categories: string;

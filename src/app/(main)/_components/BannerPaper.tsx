@@ -57,10 +57,7 @@ const BannerPaper = async () => {
               </div>
             </div>
             <p className="mt-2 line-clamp-3 text-sm italic sm:mt-4 sm:text-base lg:line-clamp-4 xl:line-clamp-5">
-              Layout masonry là 1 bố cục dạng lưới dựa trên các cột, không giống
-              như grid, nó không có chiều cao cố định. Tựu chung lại, masonry
-              layout sẽ tối ưu hoá không gian sử dụng trong 1 trang web bằng
-              cách giảm thiểu tất các khoảng trống giữa các element.
+              {post[0]?.shortDescription}
             </p>
             <div>
               <Link

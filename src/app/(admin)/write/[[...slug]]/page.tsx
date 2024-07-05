@@ -21,6 +21,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import IsAuthRoute from "~/app/_components/IsAuth";
 import { ICreatePost } from "~/interfaces/post";
 import Upload from "~/components/Upload";
+import TextArea from "~/components/TextArea/TextArea";
 
 type CustomFile = File & {
   preview: string;
@@ -45,6 +46,7 @@ function WritePage({ params }: { params: { slug: string } }) {
   const [title, setTitle] = useState<string>("");
   const [categories, setCategories] = useState<ICategories[]>([]);
   const [isSave, setIsSave] = useState(true);
+  const [shortDescription, setShortDescription] = useState<string>("");
 
   useEffect(() => {
     async function getPostEdit(slug: string) {
@@ -100,9 +102,13 @@ function WritePage({ params }: { params: { slug: string } }) {
       alert("category empty");
       return;
     }
+    if (shortDescription.length == 0) {
+      alert("short description empty");
+      return;
+    }
 
     if (!file && thumbnailUrl == "") {
-      alert("thumnail empty");
+      alert("thumbnail empty");
       return;
     }
 
@@ -110,6 +116,7 @@ function WritePage({ params }: { params: { slug: string } }) {
       author: user.user._id,
       title,
       description: content,
+      shortDescription: shortDescription,
       photo: thumbnailUrl,
       categories: [...categories.map((i) => i._id)],
       status: "visibility",
@@ -307,78 +314,6 @@ function WritePage({ params }: { params: { slug: string } }) {
         </div>
         <div className="flex w-360 flex-col items-center border border-l border-l-gray-300 bg-white px-4 shadow-sm">
           <div className="mt-4">
-            {/* <div className="f-center my-4 w-full">
-              {(function () {
-                if (file) {
-                  return (
-                    <div className="relative w-full overflow-hidden rounded-sm">
-                      <label
-                        htmlFor="file"
-                        className="f-center group absolute inset-0 cursor-pointer hover:bg-black/10"
-                      >
-                        <img
-                          className="invisible h-8 w-8 group-hover:visible"
-                          src={"/svg/camera.svg"}
-                          alt="camera icon"
-                        />
-                      </label>
-                      <img
-                        className="h-full w-full object-cover"
-                        src={file.preview}
-                        alt="img"
-                      />
-                    </div>
-                  );
-                }
-                if (thumbnailUrl != "") {
-                  return (
-                    <div className="relative w-full overflow-hidden rounded-sm">
-                      <label
-                        htmlFor="file"
-                        className="f-center group absolute inset-0 cursor-pointer hover:bg-black/10"
-                      >
-                        <img
-                          className="invisible h-8 w-8 group-hover:visible"
-                          src={"/svg/camera.svg"}
-                          alt="camera icon"
-                        />
-                      </label>
-                      <Image
-                        className="h-44 w-80 object-cover"
-                        priority={true}
-                        loading="eager"
-                        quality={95}
-                        width={320}
-                        height={180}
-                        src={thumbnailUrl}
-                        alt="img"
-                      />
-                    </div>
-                  );
-                }
-
-                return (
-                  <div className="h-52 w-80 border-2 border-dashed border-gray-400">
-                    <label
-                      htmlFor="file"
-                      className="block h-full w-full cursor-pointer text-center leading-[208px] text-gray-400"
-                    >
-                      Choose thumbnail
-                    </label>
-                  </div>
-                );
-              })()}
-
-              <input
-                type="file"
-                name="file"
-                id="file"
-                style={{ display: "none" }}
-                accept="image/png, image/gif, image/jpeg, image/jpg"
-                onChange={handleChooseImage}
-              />
-            </div> */}
-
             <Upload
               url={thumbnailUrl}
               width={320}
@@ -391,6 +326,17 @@ function WritePage({ params }: { params: { slug: string } }) {
             <div className="mt-4">
               <label>Categories</label>
               <InputTags values={categories} setValues={setCategories} />
+            </div>
+
+            <div>
+              <TextArea
+                title="Short Description"
+                onChange={(e) => setShortDescription(e.target.value)}
+                value={shortDescription}
+                className="mt-8"
+                rows={5}
+                maxLength={256}
+              ></TextArea>
             </div>
 
             <div className="mt-4">
