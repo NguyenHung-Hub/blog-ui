@@ -38,14 +38,16 @@ const SideBarDashboard = () => {
     <aside className="h-full w-60 min-w-[200px] border-r border-gray-200">
       <div className="p-8">
         <section className="f-center">
-          <Image
-            src={"/svg/logo-text.svg"}
-            height={60}
-            width={147}
-            priority={true}
-            className="h-[60px] w-[147px]"
-            alt="logo text"
-          />
+          <Link href={"/"} target="_blank">
+            <Image
+              src={"/svg/logo-text.svg"}
+              height={60}
+              width={147}
+              priority={true}
+              className="h-[60px] w-[147px]"
+              alt="logo text"
+            />
+          </Link>
         </section>
         <section className="mt-8">
           <ul>
