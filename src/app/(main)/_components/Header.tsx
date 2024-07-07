@@ -7,14 +7,14 @@ import Search from "./Search";
 const Header = () => {
   return (
     <header className="p-responsive fixed left-0 right-0 top-0 z-[100] flex h-14 w-full items-center justify-between border-b border-b-gray-200 bg-white dark:border-b-gray-700 dark:bg-dark">
-      <Link href={"/"}>
+      <Link href={"/"} className="outline-none">
         <Image
-          src="/logo-h.png"
-          alt="Husir Blog Logo"
-          width={36}
-          height={36}
+          src={"/svg/logo-text.svg"}
+          height={60}
+          width={147}
           priority={true}
-          className="h-6 w-6 md:h-9 md:w-9"
+          className="h-[40px] w-[98px]"
+          alt="logo text"
         />
       </Link>
       <Search />
