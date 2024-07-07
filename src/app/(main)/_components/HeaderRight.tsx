@@ -63,9 +63,15 @@ const HeaderRight = () => {
         <div className="mx-4">
           <Link
             href={"/"}
-            className="m-1 p-1 font-semibold uppercase text-gray-500 hover:text-primary"
+            className="m-1 p-1 font-semibold text-gray-500 hover:text-primary"
           >
-            Home
+            Trang chủ
+          </Link>
+          <Link
+            href={"/resources"}
+            className="m-1 p-1 font-semibold text-gray-500 hover:text-primary"
+          >
+            Tài nguyên
           </Link>
         </div>
         <ThemeToggle />
