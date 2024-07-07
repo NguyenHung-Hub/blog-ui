@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import MoonIcon from "~/components/Icons/MoonIcon";
+import SunIcon from "~/components/Icons/SunIcon";
 
 export default function ThemeToggle() {
   const [darkMode, setDarkMode] = useState(false);
@@ -30,11 +32,16 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
-      onClick={toggleDarkMode}
-      className="rounded bg-gray-200 p-2 dark:bg-gray-800"
-    >
-      {darkMode ? "Light Mode" : "Dark Mode"}
+    <button onClick={toggleDarkMode} className="rounded">
+      {darkMode ? (
+        <span>
+          <MoonIcon color="#fff" />
+        </span>
+      ) : (
+        <span>
+          <SunIcon color="#000" />
+        </span>
+      )}
     </button>
   );
 }

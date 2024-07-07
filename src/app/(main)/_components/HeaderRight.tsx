@@ -50,9 +50,6 @@ const HeaderRight = () => {
           toggleMenu ? "flex flex-col" : "hidden"
         } w-screen p-2 md:relative md:flex md:w-auto md:items-center md:rounded-none md:bg-transparent md:p-0 md:shadow-none`}
       >
-        <div>
-          <ThemeToggle />
-        </div>
         <div className="flex justify-end">
           <Image
             src="/svg/cross.svg"
@@ -63,12 +60,15 @@ const HeaderRight = () => {
             onClick={() => setToggleMenuMobile(!toggleMenu)}
           />
         </div>
-        <Link
-          href={"/"}
-          className="m-1 p-1 font-semibold uppercase text-gray-500 hover:text-primary"
-        >
-          Home
-        </Link>
+        <div className="mx-4">
+          <Link
+            href={"/"}
+            className="m-1 p-1 font-semibold uppercase text-gray-500 hover:text-primary"
+          >
+            Home
+          </Link>
+        </div>
+        <ThemeToggle />
         {isAuth && (
           <div className="group relative">
             <AvatarText
