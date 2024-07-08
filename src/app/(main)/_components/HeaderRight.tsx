@@ -60,21 +60,23 @@ const HeaderRight = () => {
             onClick={() => setToggleMenuMobile(!toggleMenu)}
           />
         </div>
-        <div className="mx-4">
+        <div>
           <Link
             href={"/"}
-            className="m-1 p-1 font-semibold text-gray-500 hover:text-primary"
+            className="m-1 p-1 font-semibold text-gray-700 hover:text-primary"
           >
             Trang chủ
           </Link>
           <Link
             href={"/resources"}
-            className="m-1 p-1 font-semibold text-gray-500 hover:text-primary"
+            className="m-1 p-1 font-semibold text-gray-700 hover:text-primary"
           >
             Tài nguyên
           </Link>
         </div>
-        <ThemeToggle />
+        <div className="f-center mx-4">
+          <ThemeToggle />
+        </div>
         {isAuth && (
           <div className="group relative">
             <AvatarText
@@ -119,9 +121,9 @@ const HeaderRight = () => {
         {!isAuth && (
           <Link
             href={"/dang-nhap"}
-            className="m-1 p-1 font-semibold uppercase text-gray-500 hover:text-primary"
+            className="m-1 rounded border border-gray-500 px-2 py-1 text-gray-700 transition-all hover:bg-gray-600 hover:text-white"
           >
-            Login
+            Đăng nhập
           </Link>
         )}
       </div>
