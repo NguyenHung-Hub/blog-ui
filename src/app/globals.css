@@ -84,3 +84,7 @@ pre code.hljs {
     @apply m-0.5 rounded border-2 px-1 py-0.5;
   }
 }
+
+.no-scroll {
+  overflow-y: hidden;
+}

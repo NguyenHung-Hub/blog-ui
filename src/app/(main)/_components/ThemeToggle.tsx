@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import MoonIcon from "~/components/Icons/MoonIcon";
 import SunIcon from "~/components/Icons/SunIcon";
 
-export default function ThemeToggle() {
+export default function ThemeToggle({
+  title = false,
+  className = "",
+}: {
+  title?: boolean;
+  className?: string;
+}) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -32,16 +38,23 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleDarkMode} className="rounded">
-      {darkMode ? (
-        <span>
-          <MoonIcon color="#fff" />
-        </span>
-      ) : (
-        <span>
-          <SunIcon color="#000" />
-        </span>
-      )}
-    </button>
+    <div className={className}>
+      <button onClick={toggleDarkMode} className="flex rounded">
+        {darkMode ? (
+          <span>
+            <MoonIcon color="#fff" />
+          </span>
+        ) : (
+          <span>
+            <SunIcon color="#000" />
+          </span>
+        )}
+        {title && (
+          <span className="ml-3">
+            {darkMode ? "Chế độ tối" : "Chế độ sáng"}
+          </span>
+        )}
+      </button>
+    </div>
   );
 }
