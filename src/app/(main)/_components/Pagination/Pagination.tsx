@@ -7,9 +7,14 @@ interface IPagination {
   currentPage?: number;
   pageCount?: number;
   onChange?: Function;
+  hidden?: boolean;
 }
 
-const Pagination = ({ currentPage = 1, pageCount = 5 }: IPagination) => {
+const Pagination = ({
+  currentPage = 1,
+  pageCount = 5,
+  hidden = false,
+}: IPagination) => {
   const pageRangeDisplayed = pageCount < 5 ? pageCount : 5;
 
   const [pages, setPages] = useState<number[]>(
@@ -38,6 +43,10 @@ const Pagination = ({ currentPage = 1, pageCount = 5 }: IPagination) => {
   // const pages = [1, 2, 3, 4, 5];
   // const pages = [6,7,8,9,10];
   // const pages = [11,12,13,14,15];
+
+  if (!hidden || pageCount < 2) {
+    return <></>;
+  }
 
   return (
     <div className="f-center mt-10 w-full">
