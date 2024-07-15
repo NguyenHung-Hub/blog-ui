@@ -3,7 +3,7 @@ import { get, postWithToken2 } from "~/util/httpRequest";
 
 export const getCategories = async (): Promise<ICategories[] | undefined> => {
   try {
-    const res = await get<ICategories[]>(`/categories`);
+    const res = await get<ICategories[]>(`/categories?type=existPost`);
     return res;
   } catch (error) {
     console.log(error);
