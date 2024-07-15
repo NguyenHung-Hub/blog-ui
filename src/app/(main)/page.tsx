@@ -12,9 +12,9 @@ const HomePage = async ({
 }) => {
   console.log(`file: page.tsx:13 > page:`, params, searchParams);
   return (
-    <main className="fc-center pt-14">
+    <main className="fc-center pb-10 pt-14">
       <BannerPaper />
-      <div className="mt-16 flex w-full flex-col items-center md:w-[720px] lg:w-[960px] lg:flex-row lg:items-start xl:w-1200">
+      <div className="mt-16 grid w-full grid-cols-12 md:w-[720px] lg:w-[960px] xl:w-1200">
         <PostGrid
           categorySlug={""}
           page={searchParams?.page ? Number(searchParams.page) : 1}

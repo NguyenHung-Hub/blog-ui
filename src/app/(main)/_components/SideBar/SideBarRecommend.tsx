@@ -10,7 +10,7 @@ const SideBarRecommend = async () => {
   const categories = await getCategories();
 
   return (
-    <aside className="hidden max-w-[300px] rounded-lg bg-white py-2 pl-3 text-black-1 dark:bg-dark-ele dark:text-light lg:block">
+    <aside className="col-span-3 hidden max-w-[300px] rounded-lg bg-white py-2 pl-3 text-black-1 dark:bg-dark-ele dark:text-light lg:block">
       <div className="side-bar-post sticky right-0 top-20 overflow-y-scroll">
         <TableOfContent />
         <div className="mb-8">

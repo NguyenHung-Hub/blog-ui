@@ -12,7 +12,7 @@ const PostGrid = async ({
 }) => {
   const posts = await listPost({ page, categorySlug, status: ["visibility"] });
   return (
-    <div id="post" className="lg:mr-5">
+    <div id="post" className="col-span-12 lg:col-span-9 lg:mr-5">
       <div className="mx-4 grid grid-cols-1 gap-5 md:mx-0 md:grid-cols-2 lg:grid-cols-3">
         {posts?.data.map((i) => <PostCard key={i._id} {...i} />)}
       </div>
