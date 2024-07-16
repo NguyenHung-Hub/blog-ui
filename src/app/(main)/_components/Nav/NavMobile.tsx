@@ -16,6 +16,11 @@ const NavMobile = () => {
     setDisableScroll(toggleMenu);
   }, [toggleMenu]);
 
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <div className="relative block md:hidden">
       <div
@@ -45,12 +50,13 @@ const NavMobile = () => {
                 title
                 className="w-40 rounded border border-gray-500 px-4 py-2"
               />
-
-              <NavLink
-                title={user.isAuth ? "Đăng xuất" : "Đăng nhập"}
-                href={user.isAuth ? "/logout" : "/dang-nhap"}
-                className="mt-4 h-10 w-40 rounded border border-gray-500 px-4 py-1"
-              />
+              {isMounted && (
+                <NavLink
+                  title={user.isAuth ? "Đăng xuất" : "Đăng nhập"}
+                  href={user.isAuth ? "/logout" : "/dang-nhap"}
+                  className="mt-4 h-10 w-40 rounded border border-gray-500 px-4 py-1"
+                />
+              )}
             </div>
           </div>
         </div>
