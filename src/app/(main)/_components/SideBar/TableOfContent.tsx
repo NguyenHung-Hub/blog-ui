@@ -2,23 +2,40 @@
 import React, { useEffect, useState } from "react";
 import slugify from "slugify";
 
+interface IHeading {
+  id: string;
+  text: string;
+  margin: string;
+}
+
+interface IMapMargin {
+  [key: string]: string;
+}
+
 const TableOfContent = () => {
-  const [html, setHtml] = useState<Array<{ id: string; text: string }>>([]);
+  const [html, setHtml] = useState<IHeading[]>([]);
+
+  const mapMargin: IMapMargin = {
+    H2: "ml-0",
+    H3: "ml-2.5",
+    H4: "ml-3.5",
+    H5: "ml-4.5",
+  };
 
   useEffect(() => {
     setHtml([]);
-    const h2 = document.querySelectorAll("h2");
-    h2.forEach((h) => {
-      h.id = slugify(h.innerText, { lower: true, strict: true });
-    });
+
     const c = document.querySelector("#post-content");
     c?.childNodes.forEach((i) => {
-      if (["H2", "H3"].includes(i.nodeName)) {
+      if (["H2", "H3", "H4", "H5"].includes(i.nodeName)) {
         const s = i as HTMLHeadingElement;
         const id = slugify(s.innerText, { lower: true, strict: true });
         s.id = id;
 
-        setHtml((prev) => [...prev, { id, text: s.innerText }]);
+        setHtml((prev) => [
+          ...prev,
+          { id, text: s.innerText, margin: mapMargin[s.tagName] },
+        ]);
       }
     });
   }, []);
@@ -49,13 +66,12 @@ const TableOfContent = () => {
                   scrollToElement(i.id);
                 }}
               >
-                {/* <a href={`#${i.id}`}> */}
                 <h4
-                  className={`select-none hover:cursor-pointer hover:font-semibold hover:text-blue-500`}
+                  className={`${i.margin} select-none text-sm hover:cursor-pointer hover:font-semibold hover:text-blue-500`}
                 >
+                  {}
                   {i.text}
                 </h4>
-                {/* </a> */}
               </div>
             );
           })}
