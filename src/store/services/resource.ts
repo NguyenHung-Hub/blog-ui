@@ -8,12 +8,13 @@ import {
   IResourceUpdate,
   IResourceUpdateResponse,
 } from "~/interfaces/resource";
+import { ISearchResponse } from "~/interfaces/search";
 import { axiosBaseQuery } from "~/util/httpQuery";
 
 const api = createApi({
   reducerPath: "api",
   baseQuery: axiosBaseQuery({ baseUrl: cfg.env.API_URL }),
-  tagTypes: ["Resources"],
+  tagTypes: ["Resources", "SearchPost"],
   endpoints: (builder) => ({
     getResources: builder.query<IResourceResponse, string>({
       query: (s) => ({ url: s }),
@@ -52,6 +53,10 @@ const api = createApi({
         };
       },
     }),
+    search: builder.query<ISearchResponse, string>({
+      query: (s) => ({ url: s }),
+      providesTags: (result, error, arg) => [{ type: "SearchPost", id: arg }],
+    }),
   }),
 });
 
@@ -60,5 +65,6 @@ export const {
   useCreateResourceMutation,
   useUpdateResourceMutation,
   useDeleteResourceMutation,
+  useSearchQuery,
 } = api;
 export default api;

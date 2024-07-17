@@ -1,5 +1,4 @@
 import { ICategory } from "./category";
-
 export interface IPost {
   _id: string;
   title: string;
@@ -63,3 +62,5 @@ export interface ICreatePostRes {
 }
 
 export interface IUpdatePostRes extends ICreatePostRes {}
+
+export interface IPostSearch extends Omit<IPost, "description"> {}

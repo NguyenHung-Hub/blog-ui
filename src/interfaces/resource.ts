@@ -7,7 +7,7 @@ export interface IResource {
   title: string;
   description: string;
   url: string;
-  categories: Array<string[]>;
+  categories: Array<string>;
   status: TResourceStatus;
   type: TResourceType;
   createdAt: string;

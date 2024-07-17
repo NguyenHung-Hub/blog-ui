@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import userSlice from "./reducer/user";
 import editorSlice from "./reducer/editor";
+import searchModal from "./reducer/searchModal";
 import api from "./services/resource";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
@@ -9,6 +10,7 @@ const store = configureStore({
   reducer: {
     user: userSlice,
     editor: editorSlice,
+    searchModal: searchModal,
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>

@@ -5,10 +5,14 @@ import useDisableScroll from "~/hook/useDisableScroll";
 import NavLink from "./NavLink";
 import MenuIcon from "~/components/Icons/MenuIcon";
 import CrossIcon from "~/components/Icons/CrossIcon";
-import { useAppSelector } from "~/store";
+import { useAppDispatch, useAppSelector } from "~/store";
+import SearchIcon from "~/components/Icons/SearchIcon";
+import { toggleSearchModal } from "~/store/reducer/searchModal";
 
 const NavMobile = () => {
   const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
   const [toggleMenu, setToggleMenuMobile] = useState(false);
 
   const { setDisableScroll } = useDisableScroll();
@@ -21,14 +25,23 @@ const NavMobile = () => {
     setIsMounted(true);
   }, []);
 
+  function openSearchModal() {
+    dispatch(toggleSearchModal(true));
+  }
+
   return (
     <div className="relative block md:hidden">
       <div
         className={`absolute right-0 top-0 h-screen w-screen bg-white/50 backdrop-blur-sm ${toggleMenu ? "block" : "hidden"}`}
       ></div>
       <div className="relative">
-        <div onClick={() => setToggleMenuMobile(!toggleMenu)}>
-          <MenuIcon className="h-8 w-8 text-gray-500 dark:text-gray-300" />
+        <div className="flex items-center">
+          <div onClick={openSearchModal} className="mr-4">
+            <SearchIcon className="h-5 w-5 text-gray-500 dark:text-gray-300" />
+          </div>
+          <div onClick={() => setToggleMenuMobile(!toggleMenu)}>
+            <MenuIcon className="h-8 w-8 text-gray-500 dark:text-gray-300" />
+          </div>
         </div>
 
         <div
