@@ -44,7 +44,7 @@ const Pagination = ({
   // const pages = [6,7,8,9,10];
   // const pages = [11,12,13,14,15];
 
-  if (!hidden || pageCount < 2) {
+  if (hidden || pageCount < 2) {
     return <></>;
   }
 
