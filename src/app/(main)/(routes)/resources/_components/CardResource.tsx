@@ -4,7 +4,7 @@ import { IResourceFull } from "~/interfaces/resource";
 
 const CardResource = ({ resource }: { resource: IResourceFull }) => {
   return (
-    <div className="md:min-h-42 group overflow-hidden rounded-lg bg-white shadow-md hover:-translate-y-2 dark:bg-dark-ele">
+    <div className="md:min-h-42 group mx-2 overflow-hidden rounded-lg bg-white shadow-md hover:-translate-y-2 dark:bg-dark-ele md:mx-0">
       <Link href={resource.url} target="_blank" className="">
         <div className="flex h-full flex-col pb-4">
           <div className="flex">
@@ -18,7 +18,7 @@ const CardResource = ({ resource }: { resource: IResourceFull }) => {
             </div>
           </div>
           <div className="flex flex-1 flex-col justify-between px-4">
-            <p className="mb-2">{resource.description}</p>
+            <p className="mb-2 line-clamp-3">{resource.description}</p>
             <div className="">
               {resource.categories.map((item) => (
                 <span
