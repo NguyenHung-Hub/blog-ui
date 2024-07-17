@@ -42,35 +42,34 @@ const BannerPaper = async () => {
             <p className="text-base font-semibold sm:text-lg md:text-xl lg:text-26">
               {post[0].title}
             </p>
-            <div className="mt-2">
-              <div className={`flex items-center`}>
-                <p className="mr-2">{formatDate(post[0].createdAt)}</p>
-                <div className="h-3 w-px bg-white md:bg-black-1"></div>
 
-                <div className="ml-2 flex items-center">
-                  {post[0].categories.map((c, i) => (
-                    <p key={i} className={`px-1 text-xs font-bold uppercase`}>
-                      #{c.name}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <p className="mt-2 line-clamp-3 text-sm italic sm:mt-4 sm:text-base lg:line-clamp-4 xl:line-clamp-5">
+            <p className="mt-2 line-clamp-4 text-sm italic sm:mt-4 sm:text-lg lg:line-clamp-4 xl:line-clamp-5">
               {post[0]?.shortDescription}
             </p>
-            <div>
-              <Link
-                href={`${cfg.routes.post}/${post[0].slug}`}
-                className="md:mt6 mt-2 block w-fit rounded border border-slate-800 px-4 py-2 sm:mt-4"
-              >
-                Xem thêm
-              </Link>
+            <div className="mt-2 flex flex-col justify-between sm:mt-2 md:mt-6">
+              <div className="flex items-center space-x-2 md:w-full">
+                {post[0].categories.map((c, i) => (
+                  <p
+                    key={i}
+                    className={`text-sm text-gray-200 md:rounded-full md:border md:border-gray-600 md:px-2 md:py-1 md:text-gray-600`}
+                  >
+                    #{c.name}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-2 md:mt-4">
+                <Link
+                  href={`${cfg.routes.post}/${post[0].slug}`}
+                  className="md:mt6 block w-fit flex-shrink-0 rounded border px-2 py-1 text-sm font-semibold hover:bg-gray-100 md:border-gray-500 md:px-3 md:py-1.5 md:text-base md:text-gray-500 lg:px-4 lg:py-2"
+                >
+                  Xem thêm
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 z-40 bg-black/10 backdrop-blur-[2px] md:hidden"></div>
+      <div className="absolute inset-0 z-40 bg-black/50 backdrop-blur-[2px] md:hidden"></div>
     </div>
   );
 };
