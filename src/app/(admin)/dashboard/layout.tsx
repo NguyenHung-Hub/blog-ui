@@ -9,7 +9,7 @@ export default function DashboardLayout({
     <>
       <div className="flex h-screen">
         <SideBarDashboard />
-        <main className="flex-1 px-4 py-8">{children}</main>
+        <main className="flex-1 bg-white px-4 py-8">{children}</main>
       </div>
     </>
   );

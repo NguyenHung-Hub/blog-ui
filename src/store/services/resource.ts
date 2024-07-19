@@ -1,5 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import cfg from "~/config";
+import { ICountDataResponse } from "~/interfaces/dashboard";
 import {
   IResourceCreate,
   IResourceCreateResponse,
@@ -14,7 +15,7 @@ import { axiosBaseQuery } from "~/util/httpQuery";
 const api = createApi({
   reducerPath: "api",
   baseQuery: axiosBaseQuery({ baseUrl: cfg.env.API_URL }),
-  tagTypes: ["Resources", "SearchPost"],
+  tagTypes: ["Resources", "SearchPost", "Dashboard"],
   endpoints: (builder) => ({
     getResources: builder.query<IResourceResponse, string>({
       query: (s) => ({ url: s }),
@@ -57,6 +58,10 @@ const api = createApi({
       query: (s) => ({ url: s }),
       providesTags: (result, error, arg) => [{ type: "SearchPost", id: arg }],
     }),
+    countData: builder.query<ICountDataResponse, void>({
+      query: (s) => ({ url: "/dashboard" }),
+      providesTags: (result, error, arg) => [{ type: "Dashboard" }],
+    }),
   }),
 });
 
@@ -66,5 +71,6 @@ export const {
   useUpdateResourceMutation,
   useDeleteResourceMutation,
   useSearchQuery,
+  useCountDataQuery,
 } = api;
 export default api;
